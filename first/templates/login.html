@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block title%}  LOGIN  {% endblock title%}
+{% block extra_head %}
+    <link rel="stylesheet" href="/static/css/login.css"/>
+{% endblock %}
+
+
+{%block body%}
+
+<body style="background-color:#252525">
+
+    <div style="background-color:yellow;margin:5px;padding:10px; font-size:larger;width:100%;overflow:hidden;text-align:center; background-opacity:0.5">
+
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+      
+        
+        
+        </div>
+
+  
+  <div class="login-box">
+      <h2>LOGIN to System</h2>
+      <form method = "POST" action="/login"> 
+        {% csrf_token %}
+          <div class="user-box">
+              <input type="text" name="uname" required="">
+              <label>Username</label>
+          </div>
+          
+          <div class="user-box">
+              <input type="password" name="password" required="">
+              <label>Password</label>
+          </div>
+
+     
+          <div> 
+            <a style="color:green;margin:0;padding-left:60%" href="signup">Sign up</a>
+       </div>
+           <a id="alpha"  href="">
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <input style="color:red;background:black; padding:5px" type="submit" >
+              
+           </a>
+       </form>
+  </div>
+
+ 
+</body>
+{%endblock body%}
+
+

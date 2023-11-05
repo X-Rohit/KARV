@@ -1,0 +1,199 @@
+
+
+
+{% extends 'base.html' %}
+{% block title%} Dashboard{% endblock title%}
+{% block extra_head %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="static/css/chat.css">
+<link rel="stylesheet" href="static/css/home.css">
+<link rel="stylesheet" href="static/css/responsivedashboard.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+{% endblock %}
+{%block body%}
+
+<body style="background-color:#252525;">
+
+  <div class="universe">
+
+
+    
+
+  <div style="background-color:yellow;margin:5px;padding:10px; font-size:larger;width:100%;overflow:hidden;text-align:center; background-opacity:0.5">
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+  
+    
+    
+    </div>
+   
+ 
+
+    <div class="sabsebada" >
+
+
+
+    {% comment %} button to get data about ticker name and price {% endcomment %}
+<div style="width:75%; margin:auto">
+
+    <button id="circle" style="background-image:url('static/black3.0.png');border-radius:50%;width:300px;height:300px;margin:10px" type="button" class="btn "data-toggle="modal" data-target="#exampleModal">
+       
+       <h2 style="color:#fd660f"> BUY STOCKS</h2>
+        {% comment %} <img style="" src="static/black3.0.png"> {% endcomment %}
+      </button>
+
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Buy Stock</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              
+                <form method = "POST" action="/calculate" class=" mx-auto w-75  p-2 "> 
+                {% csrf_token %}
+
+
+                
+                <label for="uname">Stock Name</label><br>
+                <input type="text" id="ticker" name="ticker" placeholder="stock name.."><br>
+        
+                <label for="Email">No of Shares</label><br>
+                <input type="text" id="stocks" name="stocks" placeholder="3"><br>
+        
+                <br><br>
+                <input  style="background-color:green" type="submit" value="Submit">
+        
+            </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+ 
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+    <div id="sikka" >
+      {% for coin in coinkadata %}
+      <h1 style="font-size:90px; color:red"> {{ coin.coins}}</h1>
+      <h2 style="color:goldenrod">Coins</h2>
+      {% endfor %}
+   
+    </div>
+
+  </div>
+
+
+    {% comment %} to get data from database  {% endcomment %}
+
+
+
+<div id="table">
+    
+    <h1 style="text-align:center; color:white;  padding-top: 1em; padding-bottom: 1em;">Latest Transaction</h1>
+
+    <table style="color:goldenrod" class="table ">
+        <thead>
+            <tr style="color:red">
+                <th scope="col">Name</th>
+                <th scope="col">Ticker</th>
+                <th scope="col">NO.of Shares</th>
+                <th scope="col">Total Amount</th>
+                <th scope="col">Status</th>
+                
+            </tr>
+        </thead>
+        <tbody style="color:goldenrod">
+            {% for tran in transaction %}
+                <tr>
+                    <th scope="row">{{ tran.username }}</th>
+                    <td>{{ tran.ticker }}</td>
+                    <td>{{ tran.TotalShare }}</td>
+                    <td>{{ tran.TotalAmount }}</td>
+                    <td>{{ tran.status }}</td>
+                    <td>
+                        {% comment %} <a style="margin-right: 30px;" href="{% url 'edit-employee' emp.id %}">Edit</a>
+                        <a href="{% url 'delete-employee' emp.id %}">Remove</a> {% endcomment %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</div>
+
+
+{% comment %} chat bot {% endcomment %}
+
+
+<div class="chat-bar-collapsible">
+  <button id="chat-button" type="button" class="collapsible">Chat with us!
+      <i id="chat-icon" style="color: #fff;" class="fa fa-fw fa-comments-o"></i>
+  </button>
+
+  <div class="content">
+      <div class="full-chat-block">
+          <!-- Message Container -->
+          <div class="outer-container">
+              <div class="chat-container">
+                  <!-- Messages -->
+                  <div id="chatbox">
+                      <h5 id="chat-timestamp"></h5>
+                      <p id="botStarterMessage" class="botText"><span>Loading...</span></p>
+                  </div>
+
+                  <!-- User input box -->
+                  <div class="chat-bar-input-block">
+                      <div id="userInput">
+                          <input id="textInput" class="input-box" type="text" name="msg"
+                              placeholder="Tap 'Enter' to send a message">
+                          <p></p>
+                      </div>
+
+                      <div class="chat-bar-icons">
+                          <i id="chat-icon" style="color: crimson;" class="fa fa-fw fa-heart"
+                              onclick="heartButton()"></i>
+                          <i id="chat-icon" style="color: #333;" class="fa fa-fw fa-send"
+                              onclick="sendButton()"></i>
+                      </div>
+                  </div>
+
+                  <div id="chat-bar-bottom">
+                      <p></p>
+                  </div>
+
+              </div>
+          </div>
+
+      </div>
+  </div>
+
+</div>
+   
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="static/scripts/responses.js"></script>
+<script src="static/scripts/chat.js"></script>
+
+
+
+{% endblock body %}

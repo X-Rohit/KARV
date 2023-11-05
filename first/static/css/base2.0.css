@@ -1,0 +1,80 @@
+body {
+    background-color:#252525;
+    width: auto;
+    height: 750px;
+    /* overflow-y: hidden; */
+    overflow-x: hidden; 
+    display:flex;
+    flex-direction: row;
+    }
+    .col-2 .navbar {
+       background-color: #000000;
+       height: 100%;
+       width: 250px;
+    }
+    .navbar-brand{
+        margin-left: 30px;
+        font-family: 'Poppins', sans-serif;
+        font-size:xx-large;   
+        font-weight: 700;
+        color: #fd660f;
+        letter-spacing: 3px;
+        
+    }
+    .navbar_components{
+        margin-bottom: 500px;
+        margin-top: 40px;
+    }
+    .navbar_components .nav-item{
+      height: 40px;
+      text-align: left;
+      margin-left: 12px;
+      margin-right: 12px;
+      margin-top: 3px;
+      border-radius: 10px;
+      font-family: 'poppins',sans-serif;
+    }
+    .nav-item .nav-link{
+        color: aliceblue;
+    }
+    .navbar_components .nav-item :hover{
+        background-color: rgb(49, 49, 49);
+        border-radius: 10px;
+    }
+    .navbar-nav{
+       width:250px
+    }
+    .col-9{
+        width:1300px;
+        padding: 0px;
+    }
+    .col-9 .navbar{
+        background-color: #252525;
+        height: 70px;
+        
+    }
+    
+    .has-search .form-control {
+        padding-left: 2.375rem;
+        background-color: rgb(49, 49, 49);
+        width:300px;
+        border: black 10px;
+        color: aliceblue;
+    }
+    
+    .has-search .form-control-feedback {
+        position: absolute;
+        z-index: 2;
+        display: block;
+        width: 2.375rem;
+        height: 2.375rem;
+        line-height: 2.375rem;
+        text-align: center;
+        pointer-events: none;
+       
+    }
+    .main{
+        background-color: white;
+    }
+    
+    

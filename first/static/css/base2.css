@@ -1,0 +1,210 @@
+.navbar{
+    min-height: 100px;
+}
+.body{
+    width: 100%;
+    color:#0c0c0c;
+    
+}
+.navbar-brand{
+    margin-left: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-size:xx-large;   
+    font-weight: 700;
+    color: #fd660f;
+    letter-spacing: 3px;
+}
+
+.navbar-nav{
+    margin-left: 675px;
+}
+.login-button button{
+    position: relative;
+    height: 50px;
+    width: 120px;
+    margin: 0 35px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background: linear-gradient(90deg, #f27c38, #fd660f, #fd660f, #f27c38);
+    color: azure;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.5s;
+   margin-right: 120px;
+  }
+  
+  button:last-child:hover{
+    background: linear-gradient(90deg, #f27c38, #fd660f, #e43603, #f27c38);
+    background-size: 400%;
+  }
+  button:last-child:before{
+    content: '';
+    position: absolute;
+    background: inherit;
+    top: -5px;
+    right: -5px;
+    bottom: -5px;
+    left: -5px;
+    border-radius: 50px;
+    filter: blur(20px);
+    opacity: 1;
+    z-index: -1;
+    animation: glow 8s linear infinite;
+    transition: opacity 0.5s;
+  }
+  
+  button:last-child:hover:before{
+    opacity: 1;
+    z-index: -1;
+  }
+  
+  @keyframes glow {
+    0%{
+      background-position: 0%;
+    }
+    100%{
+      background-position: 400%;
+    }
+  }
+
+.nav-item{
+    letter-spacing: 1px;
+    margin-right: 20px;
+}
+
+
+.home-div{
+    width: auto;
+    min-height: 600px;
+    display: flex;
+    margin-top: 100px;
+}
+.home-div-left{
+    flex: 40%;
+    background-color: #252525;
+    background-image: url("https://img.freepik.com/free-vector/smart-industry-icon_1284-66254.jpg?w=740&t=st=1673967345~exp=1673967945~hmac=d028b377aa66db0d22fe6b25999c6a982827822e69e7f5d85ddafd86118f1e03");
+    background-repeat: no-repeat;
+    background-size: 500px;
+    background-position: 75px 50px ;
+    background-blend-mode: multiply ; 
+}
+.home-div-right{
+    flex: 60%;
+    background-color: #252525;
+}
+
+.home-div-right-text{
+  padding:80px;
+}
+.features-div{
+    width: auto;
+    min-height: 900px;
+    background-color: #252525;
+}
+.features-container{
+  position:relative;
+  margin-top: 30px;
+}
+
+.container {
+  display: flex;
+  height: 420px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: #252525;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 80px;
+  
+}
+.container button {
+  position: absolute;
+  animation: ripple 3s infinite;
+  border-radius: 100%;
+  border: none;
+  background-color: #252525;
+  box-shadow: inset 10px 10px 20px #fd660f, inset -10px -10px 20px #fd660f;
+  transition: 0.33s ease-in all;
+  opacity: 0;
+}
+
+
+@keyframes ripple {
+  0% {
+     width: 20px;
+     height: 20px;
+     opacity: 1;
+  }
+  100% {
+     width: 1200px;
+     height: 420px;
+     opacity: 1;
+  }
+}
+
+.container button:nth-child(1) {
+  animation-delay: 300ms;
+}
+
+.container button:nth-child(2) {
+  animation-delay: 600ms;
+}
+
+.container button:nth-child(3) {
+  animation-delay: 900ms;
+}
+
+.container button:nth-child(4) {
+  animation-delay: 1200ms;
+}
+
+.container button:nth-child(5) {
+  animation-delay: 1500ms;
+}
+
+.container button:nth-child(6) {
+  animation-delay: 1800ms;
+}
+.features-div-main{
+  z-index:10;
+  opacity: 1;
+  display: block;
+  background-color: #252525;
+  width: auto;
+  color: azure;
+}
+#features-div-main-row-2{
+  margin-top: 20px;
+}
+
+
+.card h5{
+  margin-top: 50px;
+  color: #03e9f4;
+  position: relative;
+}
+.card i{
+  margin-top: 20px;
+  margin-left: 20px;}
+
+.card{
+  height: 200px;
+  width: 200px;
+  background-color: rgb(21, 21, 21);
+}
+ .card :hover{
+  transition: all 0.3s ease-out;
+  background-color: aliceblue;
+  
+}
+.card :hover h5{
+  transform: translate(0,-110px);
+  color:#fd660f;
+  font-weight: 900;
+} 

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KARV | {%block title %}  {%endblock title%}</title>
+    {% block extra_head %} {% endblock %}
+    <link rel="stylesheet"href="static/css/base2.css"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    {% comment %} <link href="static/css/base2.css" rel="stylesheet"> {% endcomment %}
+    
+  
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top" data-bs-theme="dark">
+        <div class="container-fluid">
+          <div class="navbar-brand" >KARV
+          </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="#home" style="color: #f8f9fa;">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#features" style="color: #f8f9fa;">Features</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" style="color: #f8f9fa;">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" style="color: #f8f9fa;">Support</a>
+              </li>
+            </ul>
+            </div>
+            <div class="login-button">
+           <button> <a href="login">Login</a></button>
+            </div>
+        </div>
+      </nav>
+
+
+      <main style="margin-top:80px; padding-top:20px ">
+
+
+{% block body%}  {% endblock body%}
+    </main>
+</body>
+</html>
